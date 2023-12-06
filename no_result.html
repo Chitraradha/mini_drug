@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+</head>
+<body>
+    <h1>Search Result</h1>
+    <p>Medications for '{{ condition }}' with 'Primary' side effects:</p>
+    {% if medications %}
+        <div style="display: flex; flex-wrap: wrap;">
+            {% for medication in medications %}
+                <span style="margin-right: 0;">{{ medication }}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No medications found for '{{ condition }}' with 'Primary' side effects.</p>
+    {% endif %}
+</body>
+</html>

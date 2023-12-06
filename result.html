@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Search Result</title>
+</head>
+<body style="background-image: url('/static/drug.jpg');background-repeat: no-repeat;background-size: cover;">
+    <div class="container">
+        <h1>Search Result</h1>
+        <p>Medications for '{{ condition }}' with 'Primary' side effects:</p>
+        {% if medications %}
+            <ul>
+                {% for medication, side_effects in medications %}
+                    <li>{{ medication }} - Side Effects: {{ side_effects }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No medications found for '{{ condition }}' with 'Primary' side effects.</p>
+        {% endif %}
+    </div>
+    <div class="footer">
+        <p>© 2023 Medication Search</p>
+    </div>
+</body>
+</html>
